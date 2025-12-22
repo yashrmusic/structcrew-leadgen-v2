@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StructCrew | Lead Discovery Engine</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <main class="glass-container">
+        <header>
+            <div class="logo">
+                <span class="logo-accent">STRUCT</span>CREW
+            </div>
+            <h1>Lead Discovery Engine</h1>
+
+            <nav class="tabs">
+                <button class="tab-btn active" data-tab="discovery">Live Discovery</button>
+                <button class="tab-btn" data-tab="database">Lead Database</button>
+            </nav>
+        </header>
+
+        <section class="search-section">
+            <div class="input-group">
+                <input type="text" id="queryInput" placeholder="e.g., Architects in Mumbai" autocomplete="off">
+                <select id="limitSelect">
+                    <option value="10">10 Leads</option>
+                    <option value="20" selected>20 Leads</option>
+                    <option value="50">50 Leads</option>
+                </select>
+                <button id="searchBtn">Discovery Strategy</button>
+            </div>
+        </section>
+
+        <section class="results-section">
+            <div id="loading" class="hidden">
+                <div class="spinner"></div>
+                <p>Establishing digital links to Google Maps... This can take up to 30 seconds.</p>
+            </div>
+
+            <div id="stats" class="hidden">
+                Found <span id="count">0</span> leads for your query.
+            </div>
+
+            <div id="resultsGrid" class="results-grid">
+                <!-- Leads will appear here -->
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
