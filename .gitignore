@@ -6,6 +6,14 @@ leads_db.json
 google-credentials.json
 email-config.json
 twilio-config.json
+mega-config.json
+mega-upload-history.json
+# Image folders (stored in MEGA instead)
+archi_jobs/
+ig_downloads/
+ig_downloads_test/
+compressed-images/
+
 *.json
 !quick_ocr_results.json
 !package.json
