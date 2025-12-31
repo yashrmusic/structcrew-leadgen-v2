@@ -2,3 +2,11 @@ node_modules/
 .DS_Store
 leads_db.json
 *.log
+.env
+google-credentials.json
+email-config.json
+twilio-config.json
+*.json
+!quick_ocr_results.json
+!package.json
+!email-config.json.example

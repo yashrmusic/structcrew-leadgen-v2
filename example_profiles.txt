@@ -1,0 +1,6 @@
+# Example profiles for bulk download
+# Add one username per line (without @)
+
+archi_jobs
+#another_profile
+#third_profile

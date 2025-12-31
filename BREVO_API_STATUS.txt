@@ -1,0 +1,102 @@
+╔════════════════════════════════════════════════════════════════════════╗
+║                      BREVO API KEY STATUS                             ║
+╚════════════════════════════════════════════════════════════════════════╝
+
+❌ BREVO API KEY ERROR
+
+The API key you provided appears to be invalid or unauthorized.
+
+Key: YOUR_BREVO_SMTP_KEY
+
+Error: "Key not found" (Code: unauthorized)
+
+═════════════════════════════════════════════════════════════════════════
+
+🔍 POSSIBLE REASONS:
+
+1. API Key Format Incorrect
+   - Brevo keys should start with "xkeysib-..."
+   - Your key starts with "xsmtpsib-..."
+   - "xsmtpsib" keys are for SMTP, not API
+
+2. Wrong Type of Key
+   - You might have generated an SMTP key instead of API key
+   - API keys are used with the Brevo API
+   - SMTP keys are used with email clients
+
+3. Key Expired or Revoked
+   - Check if the key is still active
+   - Generate a new key if needed
+
+═════════════════════════════════════════════════════════════════════════
+
+💡 HOW TO GET THE CORRECT BREVO API KEY:
+
+Step 1: Login to Brevo
+   - Go to: https://app.brevo.com
+   - Login with your credentials
+
+Step 2: Go to API Keys
+   - Click on your name (top right)
+   - Select: "SMTP & API" or "API Keys"
+   - Look for: "API Keys" section (not SMTP)
+
+Step 3: Generate API Key
+   - Click: "Generate a new API key"
+   - Give it a name: "StructCrew"
+   - Make sure it's API key, NOT SMTP key
+   - Click: "Generate"
+
+Step 4: Copy the API Key
+   - The API key should start with "xkeysib-..."
+   - NOT "xsmtpsib-..."
+   - Click: "Copy" to copy the key
+
+Step 5: Send Me the New Key
+   - Send me the new API key
+   - It should start with "xkeysib-..."
+
+═════════════════════════════════════════════════════════════════════════
+
+📊 KEY FORMATS:
+
+SMTP Key (INCORRECT):
+    YOUR_BREVO_SMTP_KEY
+    ❌ Used for email clients only
+    ❌ Not for API integration
+
+API Key (CORRECT):
+    YOUR_BREVO_API_KEY
+    ✅ Used for API integration
+    ✅ Can send programmatic emails
+
+═════════════════════════════════════════════════════════════════════════
+
+🎯 NEXT STEPS:
+
+OPTION 1: Get Correct Brevo API Key
+   1. Login to: https://app.brevo.com
+   2. Go to: SMTP & API → API Keys
+   3. Generate NEW API key (starts with "xkeysib-")
+   4. Send me the new key
+
+OPTION 2: Skip Brevo, Use Working Services
+   ✅ Gmail: Ready to send now (486 remaining)
+   ✅ Resend: Ready after DNS verification
+   ✅ Mailgun: Need API key (works with Gmail)
+
+OPTION 3: Use Gmail Right Now (Fastest)
+   node email-campaign.js send -s "Connect with StructCrew" -t structcrew-clean -e final_email_list.txt --limit 118
+
+═════════════════════════════════════════════════════════════════════════
+
+📞 BREVO SUPPORT:
+
+If you continue to have issues:
+- Support: https://help.brevo.com/hc/en-us
+- API Docs: https://developers.brevo.com/docs/how-to-use-the-api
+
+═════════════════════════════════════════════════════════════════════════
+
+Last Updated: December 26, 2025
+Status: Brevo API key invalid - need correct API key

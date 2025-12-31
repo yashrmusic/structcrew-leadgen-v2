@@ -1,0 +1,3 @@
+test@example.com
+company1@test.com
+design@studio.com

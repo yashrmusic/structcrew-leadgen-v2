@@ -1,0 +1,13 @@
+STRUCTCREW FRESH LEADS SUMMARY
+==============================
+Generated: $(date)
+
+SOURCES PROCESSED:
+- sculptdesignstudio (380 images)
+- archi_jobs (402 images)
+
+TOTAL LEADS EXTRACTED:
+- Emails: 118 unique emails
+- Phone Numbers: 68 phone numbers
+
+EMAIL LEADS:

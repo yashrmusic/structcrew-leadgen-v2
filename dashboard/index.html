@@ -4,15 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StructCrew | Lead Discovery Engine</title>
+    <title>StructCrew | Lead Discovery V4</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://js.puter.com/v2/"></script>
 </head>
 
 <body>
     <div class="background-blobs">
         <div class="blob blob-1"></div>
         <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
     </div>
 
     <main class="glass-container">
@@ -20,38 +22,151 @@
             <div class="logo">
                 <span class="logo-accent">STRUCT</span>CREW
             </div>
-            <h1>Lead Discovery Engine</h1>
+            <h1>Discovery Core <span class="version-tag">V4.0</span></h1>
+
+            <!-- Stats Bar -->
+            <div class="stats-bar" id="statsBar">
+                <div class="stat-item">
+                    <span class="stat-value" id="stat-total">0</span>
+                    <span class="stat-label">Total Leads</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value" id="stat-new">0</span>
+                    <span class="stat-label">New</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value" id="stat-interested">0</span>
+                    <span class="stat-label">Interested</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value" id="stat-queue">0</span>
+                    <span class="stat-label">Active Queue</span>
+                </div>
+            </div>
 
             <nav class="tabs">
-                <button class="tab-btn active" data-tab="discovery">Live Discovery</button>
-                <button class="tab-btn" data-tab="database">Lead Database</button>
+                <button class="tab-btn active" data-tab="discovery">🔍 Google Maps</button>
+                <button class="tab-btn" data-tab="instagram">📸 Instagram OCR</button>
+                <button class="tab-btn" data-tab="hub">📁 Lead Hub</button>
+                <button class="tab-btn" data-tab="automation">⚙️ Automation</button>
             </nav>
         </header>
 
-        <section class="search-section">
-            <div class="input-group">
-                <input type="text" id="queryInput" placeholder="e.g., Architects in Mumbai" autocomplete="off">
-                <select id="limitSelect">
-                    <option value="10">10 Leads</option>
-                    <option value="20" selected>20 Leads</option>
-                    <option value="50">50 Leads</option>
-                </select>
-                <button id="searchBtn">Discovery Strategy</button>
+        <!-- Live Console (Always Visible When Active) -->
+        <div id="liveConsole" class="live-console">
+            <div class="console-header">
+                <span>📡 Live Activity Log</span>
+                <div class="dot pulse"></div>
             </div>
-        </section>
+            <div id="consoleOutput" class="console-output">
+                <div class="console-line"><span class="time">[Ready]</span> Waiting for commands...</div>
+            </div>
+        </div>
 
-        <section class="results-section">
+        <!-- Google Maps Discovery Section -->
+        <section id="discovery" class="tab-content active">
+            <div class="section-header">
+                <h2>🗺️ Google Maps Discovery</h2>
+                <p class="section-desc">Find businesses on Google Maps by searching keywords like "Architects in Mumbai"
+                </p>
+            </div>
+
+            <div class="search-box">
+                <div class="input-group">
+                    <input type="text" id="queryInput" placeholder="e.g., Architects in Mumbai" autocomplete="off">
+                    <select id="limitSelect">
+                        <option value="10">10 Leads</option>
+                        <option value="20" selected>20 Leads</option>
+                        <option value="50">50 Leads</option>
+                        <option value="200">200 Leads</option>
+                    </select>
+                    <button id="searchBtn">🚀 Start Discovery</button>
+                </div>
+            </div>
+
             <div id="loading" class="hidden">
                 <div class="spinner"></div>
-                <p>Establishing digital links to Google Maps... This can take up to 30 seconds.</p>
-            </div>
-
-            <div id="stats" class="hidden">
-                Found <span id="count">0</span> leads for your query.
+                <p>Scraping Google Maps...</p>
             </div>
 
             <div id="resultsGrid" class="results-grid">
-                <!-- Leads will appear here -->
+                <!-- Live results -->
+            </div>
+        </section>
+
+        <!-- Instagram OCR Section -->
+        <section id="instagram" class="tab-content hidden">
+            <div class="section-header">
+                <h2>📸 Instagram Profile OCR Scanner</h2>
+                <p class="section-desc">Download posts from any Instagram profile and extract contact info using OCR</p>
+            </div>
+
+            <div class="search-box">
+                <div class="input-group">
+                    <input type="text" id="bulkIgInput" placeholder="Instagram username (e.g. archi_jobs)">
+                    <select id="bulkLimitSelect">
+                        <option value="20">Last 20 Posts</option>
+                        <option value="50" selected>Last 50 Posts</option>
+                        <option value="100">Last 100 Posts</option>
+                    </select>
+                    <button id="bulkScanBtn">📥 Download & Scan</button>
+                </div>
+                <div class="puter-toggle">
+                    <label class="switch">
+                        <input type="checkbox" id="puterModeToggle">
+                        <span class="slider round"></span>
+                    </label>
+                    <span class="toggle-label">⚡ Use Puter AI (Serverless OCR)</span>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h4>How it works:</h4>
+                <ol>
+                    <li>Enter an Instagram username (no @ needed)</li>
+                    <li>Click "Download & Scan" to fetch all post images</li>
+                    <li>OCR extracts emails & phone numbers from images</li>
+                    <li>Results appear in the Live Activity Log above</li>
+                </ol>
+            </div>
+
+            <div id="ocrResults" class="ocr-results">
+                <!-- OCR results will appear here -->
+            </div>
+        </section>
+
+        <!-- Lead Hub Section -->
+        <section id="hub" class="tab-content hidden">
+            <div class="section-header">
+                <h2>📁 Lead Database</h2>
+                <p class="section-desc">All your saved leads in one place. Filter, update status, or export.</p>
+            </div>
+
+            <div class="toolbar">
+                <input type="text" id="hubSearch" placeholder="Filter leads...">
+                <button id="exportCsvBtn" class="btn-outline">📊 Export to CSV</button>
+            </div>
+            <div id="hubGrid" class="results-grid">
+                <!-- Persistent leads -->
+            </div>
+        </section>
+
+        <!-- Automation Section -->
+        <section id="automation" class="tab-content hidden">
+            <div class="section-header">
+                <h2>⚙️ Automated Discovery Queue</h2>
+                <p class="section-desc">Add search queries that will run automatically every day.</p>
+            </div>
+
+            <div class="queue-manager">
+                <div class="queue-input">
+                    <input type="text" id="queueInput" placeholder="New query (e.g. Interior Designers in Delhi)">
+                    <button id="addQueueBtn">➕ Add to Queue</button>
+                </div>
+
+                <div id="queueList" class="queue-list">
+                    <!-- Queue items -->
+                </div>
             </div>
         </section>
     </main>

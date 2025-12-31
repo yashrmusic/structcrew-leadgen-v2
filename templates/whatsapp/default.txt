@@ -1,0 +1,12 @@
+Hi {{firstName}}! 👋
+
+This is {{yourName}} from {{companyName}}. I came across your profile and wanted to reach out.
+
+We help businesses like yours with {{service}}. Would you be interested in a quick chat?
+
+Looking forward to hearing from you!
+
+Best regards,
+{{yourName}}
+{{companyName}}
+{{website}}

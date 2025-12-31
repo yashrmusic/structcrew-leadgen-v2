@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{subject}}</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f7f6;
+        }
+        .container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 8px 8px 0 0;
+            margin: -40px -40px 30px -40px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+        .header p {
+            margin: 10px 0 0 0;
+            opacity: 0.9;
+        }
+        .section {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 25px 0;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        .benefits {
+            margin: 20px 0;
+        }
+        .benefits li {
+            margin: 10px 0;
+            padding-left: 10px;
+        }
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            font-size: 12px;
+            color: #777;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Join the StructCrew Network</h1>
+            <p>Where Architecture & Design Meet Opportunity</p>
+        </div>
+
+        {{#if companyName}}
+        <p>Hi {{companyName}},</p>
+        {{else}}
+        <p>Hello,</p>
+        {{/if}}
+
+        <p>I've been following your {{businessType}} work on Instagram, and I'm genuinely impressed by your portfolio and design philosophy.</p>
+
+        <div class="section">
+            <strong>🎯 Why connect with StructCrew?</strong>
+        </div>
+
+        <p>We specialize in connecting exceptional design professionals with meaningful opportunities:</p>
+
+        <ul class="benefits">
+            <li><strong>Project Opportunities:</strong> Get matched with projects that align with your expertise and style</li>
+            <li><strong>Career Growth:</strong> Access senior-level positions in top architecture and design firms</li>
+            <li><strong>Freelance Projects:</strong> Pick up additional work when your schedule allows</li>
+            <li><strong>Networking:</strong> Connect with industry peers and potential clients</li>
+            <li><strong>Market Insights:</strong> Stay updated on industry trends and opportunities</li>
+        </ul>
+
+        <div class="section">
+            <strong>🚀 What makes us different?</strong>
+        </div>
+
+        <p>We don't just fill positions—we build lasting partnerships. We understand that great design requires great talent, and we're committed to helping you find the perfect match for your career or projects.</p>
+
+        <div style="text-align: center;">
+            <a href="https://structcrew.com/join" class="cta-button">Join Our Network</a>
+        </div>
+
+        <p>Takes less than 2 minutes to sign up. No obligation, just opportunity.</p>
+
+        <p>I'd love to personally connect to learn more about your work and how we might collaborate. Would you be open to a brief conversation this week?</p>
+
+        <p>Warm regards,<br>
+        <strong>The StructCrew Team</strong></p>
+
+        <div class="footer">
+            <p><strong>StructCrew</strong> - Connecting Design Professionals Worldwide</p>
+            <p>📧 contact@structcrew.com | 🌐 structcrew.com</p>
+            <p>This email was sent to {{to}}. To unsubscribe, reply with "Unsubscribe".</p>
+            <p>&copy; 2025 StructCrew. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>

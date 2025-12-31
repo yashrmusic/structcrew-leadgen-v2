@@ -24,8 +24,9 @@ class MapsScraper {
      * Search for leads on Google Maps
      * @param {string} query - e.g. "Architects in Mumbai"
      * @param {number} limit - max leads to fetch
+     * @param {function} logCallback - callback for real-time logging
      */
-    async search(query, limit = 20) {
+    async search(query, limit = 20, logCallback = () => { }) {
         if (!this.browser) await this.init();
 
         const page = await this.browser.newPage();
@@ -42,10 +43,11 @@ class MapsScraper {
         try {
             // Wait for results to load
             const containerSelector = 'div[role="feed"]';
+            logCallback(`Waiting for Maps results...`);
             await page.waitForSelector(containerSelector, { timeout: 15000 });
 
             // Scrolling mechanism
-            console.log('Scrolling to load results...');
+            logCallback(`Scrolling to load leads (Limit: ${limit})...`);
             await page.evaluate(async (selector, maxLeads) => {
                 const scrollContainer = document.querySelector(selector);
                 let lastHeight = scrollContainer.scrollHeight;
@@ -68,9 +70,10 @@ class MapsScraper {
 
             // Extract results
             const leadElements = await page.$$('div.Nv2PK');
-            console.log(`Extracting data from ${Math.min(leadElements.length, limit)} leads...`);
+            const totalToExtract = Math.min(leadElements.length, limit);
+            logCallback(`Total results visible: ${leadElements.length}. Extracting ${totalToExtract}...`);
 
-            for (let i = 0; i < Math.min(leadElements.length, limit); i++) {
+            for (let i = 0; i < totalToExtract; i++) {
                 const lead = await page.evaluate(el => {
                     const name = el.querySelector('.fontHeadlineSmall')?.innerText ||
                         el.querySelector('a.hfpxzc')?.getAttribute('aria-label') || 'Unknown';
@@ -86,6 +89,7 @@ class MapsScraper {
                     return { name, rating, reviews, address, website, phone };
                 }, leadElements[i]);
 
+                logCallback(`[${i + 1}/${totalToExtract}] Extracted: ${lead.name}`);
                 leads.push(lead);
             }
 

@@ -1,0 +1,17 @@
+{
+  "smtpAccounts": [
+    {
+      "email": "your-email@gmail.com",
+      "host": "smtp.gmail.com",
+      "port": 587,
+      "secure": false
+    }
+  ],
+  "fromName": "StructCrew",
+  "fromEmail": "your-email@gmail.com",
+  "dailyLimit": 500,
+  "batchDelay": 5000,
+  "retryAttempts": 3,
+  "retryDelay": 10000,
+  "trackingEnabled": false
+}
